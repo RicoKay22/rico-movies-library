@@ -2,14 +2,13 @@
 
 <div align="center">
 
-![CineVault Banner](https://img.shields.io/badge/CineVault-Movie%20Library-red?style=for-the-badge&logo=film)
-[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+![CineVault Banner](https://img.shields.io/badge/Rico's-Movie%20Library-red?style=for-the-badge&logo=film)
 [![OOP](https://img.shields.io/badge/Paradigm-Object%20Oriented-blue?style=for-the-badge)](https://en.wikipedia.org/wiki/Object-oriented_programming)
 [![API](https://img.shields.io/badge/API-OMDb-yellow?style=for-the-badge)](https://www.omdbapi.com/)
 
 **A sophisticated, production-ready movie library web application showcasing advanced JavaScript OOP principles, smart caching, and scalable architecture.**
 
-[Features](#-key-features) | [Installation](#-installation--setup) | [Documentation](#-usage-guide) | [API Guide](#-api-management)
+[Features](#-key-features) | [Installation](#-installation--setup) 
 
 </div>
 
@@ -23,11 +22,7 @@
 - [OOP Concepts Demonstrated](#-oop-concepts-demonstrated)
 - [Installation & Setup](#-installation--setup)
 - [Usage Guide](#-usage-guide)
-- [API Management](#-api-management)
-- [Performance Optimization](#-performance-optimization)
-- [Troubleshooting](#-troubleshooting)
 - [Deployment](#-deployment)
-- [License](#-license)
 
 ---
 
@@ -138,6 +133,7 @@ Each movie genre has a unique display style demonstrating polymorphism:
 - VS Code with Live Server
 - Browser DevTools
 - Git for version control
+- Vercel
 
 ---
 
@@ -276,8 +272,8 @@ const movies = await OMDbService.searchMovies('batman');
 
 ```bash
 # Clone or download
-git clone https://github.com/yourusername/cinevault.git
-cd cinevault
+git clone https://github.com/RicoKay22/Rico-s-Movie-Library.git
+cd Rico-s-Movie-Library
 ```
 
 Or download ZIP and extract.
@@ -326,8 +322,8 @@ const API_KEYS = [
 ```
 
 ## 🚢 Deployment
-
-
+## GitHub: https://github.com/RicoKay22/Rico-s-Movie-Library
+## Vercel: 
 ---
 
 ## 📁 Project Structure
@@ -343,18 +339,18 @@ cinevault/
 
 ## 🙏 Acknowledgments
 
-- **OMDb API** - Movie database
-- **Font Awesome** - Icons
-- **Google Fonts** - Typography
-- **MDN Web Docs** - JavaScript reference
+- OMDb API - Movie database
+- Font Awesome- Icons
+- Google Fonts- Typography
+- MDN Web Docs - JavaScript reference
+- Web3BridgeAfrica Frontend Advance Cohort XIV
+- Youtube
 - Netflix UI - Design inspiration
 
 
 ---
 
-<div align="center">
-
-**Built with ❤️ using Vanilla JavaScript**
+** Built with ❤️ using Vanilla JavaScript**
 
 **No frameworks. No dependencies. Pure OOP.**
 
@@ -362,4 +358,4 @@ cinevault/
 
 ---
 
-</div>
+
