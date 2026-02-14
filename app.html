@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Rico's Movie Vault</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo">🎬 Rico Movies</h1>
+            </div>
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item active" data-category="home">Home</li>
+                    <li class="menu-list-item" data-category="action">Action</li>
+                    <li class="menu-list-item" data-category="comedy">Comedy</li>
+                    <li class="menu-list-item" data-category="horror">Horror</li>
+                    <li class="menu-list-item" data-category="romance">Romance</li>
+                    <li class="menu-list-item" data-category="anime">Anime</li>
+                    <li class="menu-list-item" data-category="biography">Biography</li>
+                </ul>
+            </div>
+            <div class="profile-container">
+                <div class="stats-container">
+                    <span class="stat-item">
+                        <i class="fas fa-film"></i>
+                        <span id="totalMovies">0</span>
+                    </span>
+                    <span class="stat-item">
+                        <i class="fas fa-star"></i>
+                        <span id="avgRating">0.0</span>
+                    </span>
+                </div>
+                <div class="profile-text-container">
+                    <span class="profile-text">My Library</span>
+                </div>
+                <div class="toggle">
+                    <i class="fas fa-moon toggle-icon"></i>
+                    <i class="fas fa-sun toggle-icon"></i>
+                    <div class="toggle-ball"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <i class="left-menu-icon fas fa-search" title="Search" id="searchIcon"></i>
+        <i class="left-menu-icon fas fa-home" title="Home" data-nav="home"></i>
+        <i class="left-menu-icon fas fa-bookmark" title="My Library" data-nav="library"></i>
+        <i class="left-menu-icon fas fa-heart" title="Favorites" data-nav="favorites"></i>
+        <i class="left-menu-icon fas fa-clock" title="Watch Later" data-nav="watchlater"></i>
+        <i class="left-menu-icon fas fa-chart-line" title="Statistics" data-nav="stats"></i>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="container">
+        <div class="content-container">
+            
+            <!-- Search Section -->
+            <section class="search-section" id="searchSection">
+                <div class="search-container">
+                    <h2 class="search-title">Discover Your Next Favorite Movie</h2>
+                    <div class="search-box">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search for movies...">
+                        <button id="searchBtn" class="search-button">
+                            <i class="fas fa-search"></i> Search
+                        </button>
+                    </div>
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+            </section>
+
+            <!-- Featured Content -->
+            <section class="featured-content" id="featuredContent">
+                <div class="featured-overlay">
+                    <img class="featured-title" id="featuredTitle" src="" alt="">
+                    <div class="featured-meta">
+                        <span class="featured-year" id="featuredYear"></span>
+                        <span class="featured-rating" id="featuredRating"></span>
+                        <span class="featured-genre" id="featuredGenre"></span>
+                    </div>
+                    <p class="featured-desc" id="featuredDesc"></p>
+                    <div class="featured-buttons">
+                        <button class="featured-button" id="featuredViewBtn">
+                            <i class="fas fa-info-circle"></i> View Details
+                        </button>
+                        <button class="featured-button featured-button-secondary" id="featuredAddBtn">
+                            <i class="fas fa-plus"></i> Add to Library
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Movie Lists by Genre -->
+            <div id="genreLists"></div>
+
+            <!-- My Library Section -->
+            <section class="library-section" id="librarySection" style="display: none;">
+                <h1 class="section-title">My Movie Library</h1>
+                <div class="filter-controls">
+                    <select id="genreFilter" class="filter-select">
+                        <option value="all">All Genres</option>
+                        <option value="action">Action</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="horror">Horror</option>
+                        <option value="romance">Romance</option>
+                        <option value="anime">Anime</option>
+                        <option value="biography">Biography</option>
+                    </select>
+                    <select id="ratingFilter" class="filter-select">
+                        <option value="all">All Ratings</option>
+                        <option value="5">5 Stars</option>
+                        <option value="4">4+ Stars</option>
+                        <option value="3">3+ Stars</option>
+                        <option value="2">2+ Stars</option>
+                        <option value="1">1+ Stars</option>
+                    </select>
+                    <select id="sortBy" class="filter-select">
+                        <option value="dateAdded">Date Added</option>
+                        <option value="rating">My Rating</option>
+                        <option value="title">Title</option>
+                        <option value="year">Year</option>
+                    </select>
+                </div>
+                <div id="libraryGrid" class="library-grid"></div>
+            </section>
+
+            <!-- Statistics Section -->
+            <section class="stats-section" id="statsSection" style="display: none;">
+                <h1 class="section-title">Library Statistics</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-film stat-icon"></i>
+                        <h3>Total Movies</h3>
+                        <p class="stat-value" id="statTotal">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star stat-icon"></i>
+                        <h3>Average Rating</h3>
+                        <p class="stat-value" id="statAvgRating">0.0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-heart stat-icon"></i>
+                        <h3>Favorites</h3>
+                        <p class="stat-value" id="statFavorites">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-trophy stat-icon"></i>
+                        <h3>Top Genre</h3>
+                        <p class="stat-value" id="statTopGenre">-</p>
+                    </div>
+                </div>
+                <div class="genre-breakdown">
+                    <h2>Genre Distribution</h2>
+                    <div id="genreChart" class="genre-chart"></div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Movie Detail Modal -->
+    <div id="movieModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <img id="modalPoster" class="modal-poster" src="" alt="">
+                    <div class="modal-actions">
+                        <button id="modalAddToLibrary" class="modal-button">
+                            <i class="fas fa-plus"></i> Add to Library
+                        </button>
+                        <button id="modalToggleFavorite" class="modal-button modal-button-secondary">
+                            <i class="far fa-heart"></i> Favorite
+                        </button>
+                        <button id="modalWatchOnline" class="modal-button modal-button-watch">
+                            <i class="fas fa-play-circle"></i> Watch Online
+                        </button>
+                    </div>
+                </div>
+                <div class="modal-right">
+                    <h2 id="modalTitle" class="modal-title"></h2>
+                    <div class="modal-meta">
+                        <span id="modalYear"></span>
+                        <span id="modalRuntime"></span>
+                        <span id="modalRated"></span>
+                    </div>
+                    <div class="modal-rating-section">
+                        <div class="imdb-rating">
+                            <i class="fas fa-star"></i>
+                            <span id="modalImdbRating"></span>
+                        </div>
+                        <div class="user-rating">
+                            <p>Your Rating:</p>
+                            <div class="star-rating" id="modalStarRating">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-info">
+                        <p><strong>Genre:</strong> <span id="modalGenre"></span></p>
+                        <p><strong>Director:</strong> <span id="modalDirector"></span></p>
+                        <p><strong>Cast:</strong> <span id="modalActors"></span></p>
+                        <p><strong>Plot:</strong> <span id="modalPlot"></span></p>
+                    </div>
+                    <div class="reviews-section">
+                        <h3>Your Review</h3>
+                        <textarea id="reviewText" class="review-textarea" placeholder="Write your review here..."></textarea>
+                        <button id="submitReview" class="modal-button">
+                            <i class="fas fa-paper-plane"></i> Submit Review
+                        </button>
+                        <div id="reviewDisplay" class="review-display"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Watch Options Modal -->
+    <div id="watchOptionsModal" class="watch-options-modal">
+        <div class="watch-options-content">
+            <h3>Watch "<span id="watchMovieTitle"></span>"</h3>
+            <div class="watch-links" id="watchLinksContainer"></div>
+            <button class="close-watch-options" id="closeWatchOptions">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
