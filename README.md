@@ -354,7 +354,7 @@ cinevault/
 
 **No frameworks. No dependencies. Pure OOP.**
 
-⭐ Star this repo if you find it helpful!
+⭐ Star this repo if you find it helpful!!
 
 ---
 
