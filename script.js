@@ -38,6 +38,8 @@ function hasMoreKeys() {
 
 const API_URL = 'https://www.omdbapi.com/';
 
+
+
 // Free streaming sites for watching movies
 const STREAMING_SITES = [
     {
@@ -71,6 +73,8 @@ const STREAMING_SITES = [
         description: 'Free movies and series'
     }
 ];
+
+
 
 // Base Movie class
 class Movie {
