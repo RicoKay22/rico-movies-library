@@ -41,8 +41,8 @@ const API_URL = 'https://www.omdbapi.com/';
 // Free streaming sites for watching movies
 const STREAMING_SITES = [
     {
-        name: 'FMovies',
-        url: 'https://fmoviesz.to/search/',
+        name: 'IMDb TV',
+        url: 'https://www.imdb.to/search/',
         icon: '🎬',
         description: 'Popular free streaming site'
     },
