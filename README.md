@@ -323,7 +323,7 @@ const API_KEYS = [
 
 ## 🚢 Deployment
 ## GitHub: https://github.com/RicoKay22/rico-movies-library
-## Vercel: https://olu-movies-library.vercel.app/
+## Vercel: https://rico-movies-library.vercel.app/
 ---
 
 ## 📁 Project Structure
